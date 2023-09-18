@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- CSS Propio-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="card w-75">
+        <div class="card-header">
+            <h5 class="card-title">Formulario bootstrap</h5>
+        </div>
+        <div class="card-body">
+            <form id="formBootstrap">
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Nombre:</span>
+                    <input type="text" class="form-control" placeholder="Ingrese nombre" aria-label="Nombre" id="name"
+                        onkeyup="validateName()" aria-describedby="basic-addon1">
+                </div>
+                <p class="text-danger text-center" id="nameError" style="display: none;"> Debe ingresar un nombre y este
+                    debe tener entre 3 y
+                    15 caracteres.</p>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Apellido:</span>
+                    <input type="text" class="form-control" placeholder="Ingrese apellido" aria-label="Apellido"
+                        id="secondName" onkeyup="validateSecName()" aria-describedby="basic-addon1">
+                </div>
+                <p class="text-danger text-center" id="secondNameError" style="display: none;"> Debe ingresar un
+                    apellido y este debe tener
+                    entre 3 y 15 caracteres.</p>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">DNI:</span>
+                    <input type="number" class="form-control" placeholder="Ingrese dni" aria-label="dni" id="dni"
+                        onkeyup="validateDNI()" aria-describedby="basic-addon1">
+                </div>
+                <p class="text-danger text-center" id="dniError" style="display: none;"> Debe ingresar un dni y este
+                    debe ser mayor a 1000000 y menor a 50000000.</p>
+
+                <select class="form-select mb-3" id="edit_mot" onchange="validateReason()" onclick="validateReason()">
+                    <option value="" selected disabled> Selecione motivo</option>
+                    <option value="R">Reclamo</option>
+                    <option value="S">Solicitud</option>
+                    <option value="C">Comentario</option>
+                    <option value="E">Error</option>
+                </select>
+                <p class="text-danger text-center" id="mot_Error" style="display: none;"> Debe ingresar un motivo </p>
+
+                <div class="input-group">
+                    <span class="input-group-text">Observaciones</span>
+                    <textarea class="form-control" aria-label="Observaciones" id="textRemarks"
+                        onkeyup="validateText()"></textarea>
+                </div>
+                <p class="text-danger text-center" id="remarksError" style="display: none;"> Debe detallar observaciones
+                    y esta debe contener al menos 15 caracteres.
+                </p>
+            </form>
+        </div>
+        <div class="card-footer text-body-secondary">
+            <div class="buttons">
+                <button class="btn btn-success m-1" onclick="seeData()">Enviar</button>
+                <!-- Reiniciar formulario Modal -->
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#resetModal">
+                    Reiniciar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reiniciar formulario Modal -->
+    <div class="modal fade" id="resetModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="resetModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="resetModalLabel">Reiniciar formulario</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro que quiere reiniciar el formulario?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        onclick="resetForm()">Reiniciar</button>
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Bootstrap CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <!-- Javascrip propio-->
+    <script src="index.js"></script>
+</body>
+
+</html>
